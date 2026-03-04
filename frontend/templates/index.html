@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenrir</title>
+</head>
+<body>
+    <p>Hey, This is Fenrir app to show you environment variables</p>
+    {% for name in data %}
+    <p>{{name}}</p>
+    {% endfor %}
+    <p>ENVIRONMENT VARIABLES</p>
+    # print values using loop from a dictionary through jinja
+    {% for key, value in env.items() %}
+    <P>{{key}}: {{value}}</P>
+    {% endfor %}
+</p>
+</body>
+<style>
+    body {
+        background-color: black;
+        text-align: center;
+        color: bisque;
+    }
+</style>
+</html>

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fenrir-frontend
+spec:
+  selector:
+    matchLabels:
+      app: fenrir-frontend
+  template:
+    metadata:
+      labels:
+        app: fenrir-frontend
+    spec:
+      containers:
+      - name: fenrir-frontend
+        image: docker.io/coderocean/fenrir-frontend
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "400m"
+        ports:
+        - containerPort: 9000
+        env:
+        - name: BACKEND_URL
+          value: http://fenrir-backend.fenrir.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fenrir-frontend
+spec:
+  selector:
+    app: fenrir-frontend
+  ports:
+  - port: 80
+    targetPort: 9000
+
