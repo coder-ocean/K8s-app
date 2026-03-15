@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mongo-express
-        image: docker.io/mongo-express
+        image: docker.io/mongo-express:1.0.2-20-alpine3.19
         env:
         - name: ME_CONFIG_MONGODB_SERVER
           value: mongodb.fenrir.svc.cluster.local

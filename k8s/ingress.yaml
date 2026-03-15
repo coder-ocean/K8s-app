@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fenrir
+  labels:
+    app.kubernetes.io/name: fenrir
+spec:
+  rules:
+  - host: fenrir-frontend
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: fenrir-frontend
+            port: 
+              number: 80
+
+  - host: fenrir-backend
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: fenrir-backend
+            port: 
+              number: 80
+  - host: mongo-express
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: mongo-express
+            port: 
+              number: 80
