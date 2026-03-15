@@ -11,9 +11,12 @@ spec:
       labels:
         app: fenrir-frontend
     spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
       containers:
       - name: fenrir-frontend
-        image: docker.io/coderocean/fenrir-frontend
+        image: 627031163270.dkr.ecr.ap-south-1.amazonaws.com/fenrir-frontend:latest
         resources:
           limits:
             memory: "128Mi"
@@ -37,4 +40,5 @@ spec:
   ports:
   - port: 80
     targetPort: 9000
+  type: LoadBalancer
 

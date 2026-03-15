@@ -11,9 +11,12 @@ spec:
       labels:
         app: mongodb
     spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
       containers:
         - name: mongodb
-          image: docker.io/mongo
+          image: 627031163270.dkr.ecr.ap-south-1.amazonaws.com/mongo:latest
           resources:
             limits:
               memory: "128Mi"

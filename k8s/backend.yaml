@@ -11,9 +11,12 @@ spec:
       labels:
         app: fenrir-backend
     spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
       containers:
       - name: fenrir-backend
-        image: docker.io/coderocean/fenrir-backend
+        image: 627031163270.dkr.ecr.ap-south-1.amazonaws.com/fenrir-backend:latest
         resources:
           limits:
             memory: "128Mi"

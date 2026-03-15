@@ -12,9 +12,12 @@ spec:
       labels:
         app: mongo-express
     spec:
+      tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Exists"
       containers:
       - name: mongo-express
-        image: docker.io/mongo-express:1.0.2-20-alpine3.19
+        image: 627031163270.dkr.ecr.ap-south-1.amazonaws.com/mongo-express:latest
         env:
         - name: ME_CONFIG_MONGODB_SERVER
           value: mongodb.fenrir.svc.cluster.local
